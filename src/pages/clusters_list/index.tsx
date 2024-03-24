@@ -32,11 +32,31 @@ const ClustersList = () => {
       );
     const randomMar = useMemo(() => genRandomMargin(), []);
    
-    const [searchedClusters, setSearchedClusters] = useState<any>([])
+    
     const [clusters, setClusters] = useState<any>([])
     const [searchText, setSearchText] = useState('')
     const searchHandler = (e:any) => {
         setSearchText(e.target.value)
+        setClusters((prevState:any) => {
+            const newState = prevState.map((obj:any) => {
+                console.log(obj.name)
+                if ((obj.name).match(searchText)) {
+                    return {...obj, glowed: true}
+                }
+                else if (searchText == '') {
+                    return {...obj, glowed: false}
+                }
+                else{
+                    return {...obj, glowed: false}
+                }
+                
+            })
+            return newState;
+        })
+       
+            
+            
+      
 
     }
     useEffect(() => {
@@ -55,7 +75,6 @@ const ClustersList = () => {
         
     }, [])
 
-   
     return (
         <div>
             <HomePageMainContainer>
@@ -68,7 +87,7 @@ const ClustersList = () => {
                 <ClusterCirclesGridContainer>
                     {clusters.map((item:any, index:any) => (
                         
-                        <ClusterCircleElement key={item.id} size={randomSize[index]} style={{  margin: randomMar[index] + `px` }}>{item.name}</ClusterCircleElement>
+                        <ClusterCircleElement className = {item.glowed ? 'glowed' : ''} key={item.id} size={randomSize[index]} style={{  margin: randomMar[index] + `px` }}>{item.name}</ClusterCircleElement>
                     ))}
                     
                 </ClusterCirclesGridContainer>

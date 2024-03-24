@@ -28,4 +28,9 @@ cursor: pointer;
     box-shadow: 0 0 1vw 2px #C0754D;
     animation: ${upwards} 1s forwards;
 }
+
+&.glowed {
+  box-shadow: 0 0 1vw 2px #C6C6D0;
+  animation: ${upwards} 1s forwards;
+}
 `
