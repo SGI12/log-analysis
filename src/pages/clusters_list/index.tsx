@@ -3,7 +3,9 @@ import { H1Centered } from '@/components/Headings/Headings';
 import { ClusterCircleElement } from '@/components/cluster-circle/circles';
 import { ClusterCirclesGridContainer, ClustersListTopMenu, HomePageMainContainer, UnclusteredLogsBlock } from '@/components/containers/containers';
 import { SearchFieldStyled } from '@/components/inputs/styled';
+import { LinkNoStyled } from '@/components/links/styled';
 import { getClusters } from '@/http/clustersAPI';
+import Link from 'next/link';
 
 import React, { useEffect, useMemo, useState } from 'react';
 
@@ -80,14 +82,15 @@ const ClustersList = () => {
             <HomePageMainContainer>
                 <Header />
                 <ClustersListTopMenu>
-                    <UnclusteredLogsBlock><div>Логи без кластера</div></UnclusteredLogsBlock>
+                    <LinkNoStyled href={'/cluster_info/unknown'}><UnclusteredLogsBlock><div>Логи без кластера</div></UnclusteredLogsBlock></LinkNoStyled>
                     <H1Centered>Список кластеров</H1Centered>
                     <SearchFieldStyled value={searchText} onChange={searchHandler} placeholder='Поиск...'/>
                 </ClustersListTopMenu>
                 <ClusterCirclesGridContainer>
                     {clusters.map((item:any, index:any) => (
-                        
+                        <LinkNoStyled style={{textDecoration: 'none', color: '#ffffff'}} href={`/cluster_info/${item.name}`}>
                         <ClusterCircleElement className = {item.glowed ? 'glowed' : ''} key={item.id} size={randomSize[index]} style={{  margin: randomMar[index] + `px` }}>{item.name}</ClusterCircleElement>
+                        </LinkNoStyled>
                     ))}
                     
                 </ClusterCirclesGridContainer>

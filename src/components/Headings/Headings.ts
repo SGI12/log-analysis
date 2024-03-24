@@ -13,3 +13,10 @@ export const H1Centered = styled(H1Styled)`
 
 align-self: center;
 `
+
+export const H2Styled = styled.h2`
+
+color: ${vars.orange};
+font-size: 3em;
+font-weight: 400;
+`

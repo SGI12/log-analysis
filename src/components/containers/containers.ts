@@ -90,3 +90,28 @@ width: 80%;
 height: 100%;
 
 `
+
+export const DescAndRecContainer = styled.div`
+
+width: 100%;
+padding: 150px 130px 0px 130px;
+display: flex;
+justify-content: space-between;
+
+
+`
+
+export const DescriptionContainer = styled.div`
+
+display: flex;
+flex-direction: column;
+gap: 50px;
+
+`
+
+export const RecommendationContainer = styled.div`
+
+padding: 30px;
+border: 2px solid #B6410F;
+
+`

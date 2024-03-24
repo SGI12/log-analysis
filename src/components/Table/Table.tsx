@@ -3,6 +3,7 @@ import { TableMainContainer } from '../containers/containers';
 import { TableStyledMainPage } from './styled';
 import { getLogs } from '@/http/logsAPI';
 import {getClusters} from '@/http/clustersAPI';
+import { LinkNoStyled } from '../links/styled';
 
 const TableMain = () => {
     const [lastID, setLastID] = useState('0')
@@ -51,7 +52,7 @@ const TableMain = () => {
                     <tr key={item.id}>
                         <td > {item.id}</td>
                         <td>{item.data}</td>
-                        <td><span>{clusters[parseInt(item.cluster_id)]?.name}</span></td>
+                        <td><LinkNoStyled href={`cluster_info/${clusters[parseInt(item.cluster_id)]?.name}`}><span>{clusters[parseInt(item.cluster_id)]?.name}</span></LinkNoStyled></td>
                     </tr>
                 ))}
                 </tbody>
