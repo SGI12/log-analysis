@@ -16,9 +16,6 @@ body {
   color: #ffffff;
 }
 
-::selection {
-  background-color: #C0754D;
-}
 
 
 
@@ -44,4 +41,7 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   
+}
+::selection {
+  background-color: #C0754D;
 }

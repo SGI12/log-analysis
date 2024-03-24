@@ -15,7 +15,10 @@ const Header = () => {
                 <Link href={'/clusters_list'}>
                 <ButtonHeader>Список кластеров</ButtonHeader>
                 </Link>
+                <Link href={`/cluster_info/unknown`}>
                 <ButtonHeader>Логи без кластеров</ButtonHeader>
+                </Link>
+                
                 <ButtonHeader>Статистика</ButtonHeader>
             </HeaderButtonContainer>
             

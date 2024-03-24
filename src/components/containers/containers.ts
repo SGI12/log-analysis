@@ -97,7 +97,7 @@ width: 100%;
 padding: 150px 130px 0px 130px;
 display: flex;
 justify-content: space-between;
-
+margin-bottom: 100px;
 
 `
 
@@ -113,5 +113,17 @@ export const RecommendationContainer = styled.div`
 
 padding: 30px;
 border: 2px solid #B6410F;
+display: flex;
+flex-direction: column;
+gap: 30px;
+border-radius: 20px;
+`
+
+export const ClusterTableContainer = styled(TableMainContainer)`
+
+display: flex;
+gap: 50px;
+justify-content: space-between;
+
 
 `

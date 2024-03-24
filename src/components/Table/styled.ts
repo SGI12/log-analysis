@@ -40,6 +40,10 @@ tr td:last-child span {
     
 }
 
+tr td.link {
+    background-color: transparent;
+    border: none;
+}
 
 
 `
