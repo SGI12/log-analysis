@@ -1,6 +1,0 @@
-add_subdirectory(controllers)
-add_subdirectory(data_models)
-add_subdirectory(json)
-add_subdirectory(server)
-add_subdirectory(storage)
-add_subdirectory(utils)
