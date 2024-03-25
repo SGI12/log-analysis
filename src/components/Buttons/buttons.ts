@@ -1,3 +1,4 @@
+import vars from "@/styles/vars";
 import { Inter } from "next/font/google";
 import styled from "styled-components";
 const inter = Inter({ subsets: ['cyrillic'] })
@@ -30,5 +31,41 @@ border: 1px solid #C0754D;
 &:active {
     background-color: #B6410F;
     color: #C6C6D0;
+}
+`
+
+export const DropDownButton = styled.button`
+
+cursor: pointer;
+margin-top: 30px;
+padding: 15px 10px;
+width: 100%;
+color: #000000;
+font-size: 20px;
+background-color: #D9D9D9;
+border-radius: 20px;
+border: none;
+&.animated {
+    border-radius: 20px 20px 0 0;
+}
+`
+
+export const ChangeClusterButton = styled(ButtonDefault)`
+
+color: #ffffff;
+margin-bottom: 30px;
+&:hover {
+    background-color: ${vars.orange_primary};
+}
+width: 100%;
+`
+
+export const ClosePopupButton = styled(ChangeClusterButton)`
+
+background-color: transparent;
+border: 1px solid ${vars.orange};
+width: 70%;
+&:hover {
+    background-color: ${vars.orange_primary};
 }
 `

@@ -3,8 +3,13 @@ import { ClusterTableContainer, TableMainContainer } from '../containers/contain
 import { TableStyledMainPage } from './styled';
 import { ChangeClusterText } from '../text/text';
 
-const ClusterTable = ({props}:any) => {
+const ClusterTable = ({props, show, setLogID}:any) => {
     console.log(props)
+    const clickLinkHandler = (event:any) => {
+        console.log(event.target.id)
+        setLogID(event.target.id)
+        show(true)
+    }
     return (
         <ClusterTableContainer>
             <TableStyledMainPage>
@@ -13,7 +18,7 @@ const ClusterTable = ({props}:any) => {
                     <tr key={item.id}>
                         
                         <td>{item.data}</td>
-                        <td className='link'><ChangeClusterText>Сменить кластер</ChangeClusterText></td>
+                        <td className='link'><ChangeClusterText id={item.id}  onClick={(event) => clickLinkHandler(event)}>Сменить кластер</ChangeClusterText></td>
                     </tr>
                     
                 ))}

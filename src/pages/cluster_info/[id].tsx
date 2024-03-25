@@ -2,6 +2,7 @@ import Header from '@/components/Header/header';
 import { H1Centered, H2Styled } from '@/components/Headings/Headings';
 import ClusterTable from '@/components/Table/ClusterTable';
 import { DescAndRecContainer, DescriptionContainer, HomePageMainContainer, RecommendationContainer } from '@/components/containers/containers';
+import ChangeClusterPopup from '@/components/popup/ChangeClusterPopup';
 import { TextOrange, TextPrimary } from '@/components/text/text';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -10,14 +11,21 @@ const ClusterInfo = (cluster:any) => {
     const [header, setHeader] = useState('Логи без кластера')
     const data = (cluster.cluster)[0]
     const logs = (cluster.logs)
+    const [showPopup, setShowPopup] = useState(false)
+    const [logID, setLodID] = useState(-1)
+    console.log(data.name)
     useEffect(() => {
-        if (data.name !== 'unknown') {
+        const changeHeader = () => {
+            
             setHeader(data.name)
+            
         }
-    }, [])
-    console.log(logs)
+        changeHeader()
+    }, [data.name])
+    console.log(cluster)
     return (
         <div>
+            {showPopup && <ChangeClusterPopup logID={logID} clusters={cluster.all_clusters} show={setShowPopup}/>}
             <HomePageMainContainer>
                 <Header/>
                 <H1Centered>{header}</H1Centered>
@@ -33,7 +41,7 @@ const ClusterInfo = (cluster:any) => {
                 </RecommendationContainer>}
                 </DescAndRecContainer>
                 <H2Styled>Список логов:</H2Styled>
-                <ClusterTable props={logs}/>
+                <ClusterTable props={logs} show={setShowPopup} setLogID={setLodID}/>
             </HomePageMainContainer>
         </div>
     );
@@ -66,7 +74,8 @@ export async function getServerSideProps(ctx:any) {
     return {
         props: {
             cluster: filtered,
-            logs: filteredLogs
+            logs: filteredLogs,
+            all_clusters: data
         }
     };
 }

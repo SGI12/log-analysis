@@ -41,3 +41,10 @@ color: ${vars.orange_primary};
 cursor: pointer;
 `
 
+export const TextBold = styled(TextDefault)`
+
+font-weight: bold;
+color: #ffffff
+
+`
+

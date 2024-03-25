@@ -1,8 +1,21 @@
 import { Inter } from "next/font/google"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+
 const inter = Inter({subsets: ['cyrillic']})
 
+const dropDownAnimation = keyframes`
+0% { 
+    opacity: 0;
+    transform: translateY(-60px)
+  }
 
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+
+`
 export const HomePageMainContainer = styled.div`
 
 width: 100%;
@@ -126,4 +139,71 @@ gap: 50px;
 justify-content: space-between;
 
 
+`
+
+export const ChangeClusterPopupModal = styled.div`
+
+display: flex;
+flex-direction: column;
+background-color: #2D2D2D;
+backdrop-filter: blur(40px);
+padding: 20px 30px;
+width: 450px;
+border-radius: 20px;
+transition: all 0.2s ease-in-out;
+text-align: center;
+backdrop-filter: blur(40px);
+align-items: center;
+`
+
+export const ChangeClusterBackdrop = styled.div`
+
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+z-index: 5;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background-color:rgba(45,45,45,0.5);
+backdrop-filter: blur(20px);
+
+`
+
+export const DropDownContainer = styled.div`
+
+display: flex;
+flex-direction: column;
+margin-bottom: 20px;
+width: 100%;
+`
+
+export const DropDownItemsContainer = styled.div`
+
+display: flex;
+flex-direction: column;
+&::-webkit-scrollbar{
+    display: none;
+}
+
+:last-child {
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 20px;
+}
+&.animated {
+    animation: ${dropDownAnimation} 0.5s ease-in-out;
+    
+}
+
+`
+
+export const StatsBarContainer = styled.div`
+
+display: flex;
+justify-content: space-between;
+width: 50vw;
 `
