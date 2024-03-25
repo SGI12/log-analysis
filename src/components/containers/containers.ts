@@ -203,7 +203,15 @@ flex-direction: column;
 
 export const StatsBarContainer = styled.div`
 
+padding-top: 50px;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 width: 50vw;
+`
+
+export const ChartContainer = styled.div`
+
+padding-top: 50px;
+width: 40vw;
+margin-bottom: 50px;
 `

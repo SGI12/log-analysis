@@ -69,3 +69,17 @@ width: 70%;
     background-color: ${vars.orange_primary};
 }
 `
+
+export const ChartsButton = styled(ButtonDefault)`
+
+width: 15vw;
+color: #ffffff;
+background-color: transparent;
+border: 1px solid ${vars.orange};
+&:hover {
+    background-color: ${vars.orange_primary};
+}
+&.active {
+    background-color: #B6410F;
+}
+`
