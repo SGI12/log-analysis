@@ -88,11 +88,11 @@ const ClustersList = () => {
                 </ClustersListTopMenu>
                 <ClusterCirclesGridContainer>
                     {clusters.map((item:any, index:any) => (
-                        <React.Fragment key={index}>
+                       
                         <LinkNoStyled key={index} style={{textDecoration: 'none', color: '#ffffff'}} href={`/cluster_info/${item.name}`}>
-                            <ClusterCircleElement className = {item.glowed ? 'glowed' : ''}  size={randomSize[index]} style={{  margin: randomMar[index] + `px` }}>{item.name}</ClusterCircleElement>
+                            <ClusterCircleElement key={index}  className = {item.glowed ? 'glowed' : ''}  size={randomSize[index]} style={{  margin: randomMar[index] + `px` }}>{item.name}</ClusterCircleElement>
                         </LinkNoStyled>
-                        </React.Fragment>
+                       
                     ))}
                     
                 </ClusterCirclesGridContainer>
